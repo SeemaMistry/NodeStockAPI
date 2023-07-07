@@ -1,5 +1,5 @@
 {
-  "name": "NodeStockAPI",
+  "name": "nodestockapi",
   "version": "1.0.0",
   "description": "A Stock Market look up app made in Node with Javascript and a 3rd party API",
   "main": "index.js",
