@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/SeemaMistry/NodeStockAPI/issues"
   },
-  "homepage": "https://github.com/SeemaMistry/NodeStockAPI#readme"
+  "homepage": "https://github.com/SeemaMistry/NodeStockAPI#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
 }
