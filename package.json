@@ -1,0 +1,20 @@
+{
+  "name": "NodeStockAPI",
+  "version": "1.0.0",
+  "description": "A Stock Market look up app made in Node with Javascript and a 3rd party API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SeemaMistry/NodeStockAPI.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SeemaMistry/NodeStockAPI/issues"
+  },
+  "homepage": "https://github.com/SeemaMistry/NodeStockAPI#readme"
+}
