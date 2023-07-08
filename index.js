@@ -1,7 +1,7 @@
 const express = require('express');
-const app = express();
 const { engine } = require('express-handlebars');
-// const exphbs = require('express-handlebars');
+
+const app = express();
 const path = require('path');
 
 // set port to system's or 5000 default
