@@ -29,15 +29,9 @@ app.set('views', './views');
 var url = `https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=microsoft&apikey=7NRVXF6FRD2KZPF3`;
 
 
-const content = { error: "", searchTerm: "fb", stuff: "I am displaying some stuff", content: "200 okay",
-            obj: [1,2,3], obj2: [{id:"hi", "name. 1":"world"}, {id:"bye", "name. 1":"sky"}]
+const content = { error: "", searchTerm: "fb"}
 
-}
 
-// set handlebar routes
-app.get('/', function (req, res) {
-  res.render('home', content );
-});
 
 app.post('/', function (req, res) {
   content.searchTerm = req.body.searchTerm;
@@ -73,18 +67,19 @@ app.post('/', function (req, res) {
       // add data to content{}
       content.stocks = data.bestMatches;
       
-      // add only the ticker symbol to the stock{}
-      data.bestMatches.forEach(stock => {
-        console.log(stock['1. symbol'])
-      })
-
-
     }
 });
 
+
+// res.redirect('/')
  res.render('home', content );
 });
 
+// set handlebar routes
+app.get('/', function (req, res) {
+  
+  res.render('home', content );
+});
 
 
 
