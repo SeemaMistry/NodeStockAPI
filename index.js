@@ -19,8 +19,21 @@ app.engine(
 app.set('view engine', 'handlebars');
 app.set('views', './views');
 
+// bodyparser middleware
+app.use(express.json())
+app.use(express.urlencoded());
+
+// set handlebar routes
+app.get('/', function (req, res) {
+  res.render('home', content );
+});
+
+
+app.post('/about', function (req, res) {
+ res.render('about', {name: req.body.searchTerm} );
+});
+
 // Alpha Vantage API
-// 'use strict';
 var request = require('request');
 
 // replace the "demo" apikey below with your own key from https://www.alphavantage.co/support/#api-key
@@ -56,21 +69,8 @@ request.get({
     }
 });
 
-// bodyparser middleware
-app.use(express.json())
-app.use(express.urlencoded());
 
-// set handlebar routes
-app.get('/', function (req, res) {
-   res.render('home', content );
-});
-// app.post('/about', function (req, res) {
-//   res.render('about', console.log(req.body.name) );
-// });
 
-app.post('/about', function (req, res) {
-  res.render('about', {name: req.body.name} );
-});
 
 
 // set routes
