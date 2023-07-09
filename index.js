@@ -64,10 +64,13 @@ app.use(express.urlencoded());
 app.get('/', function (req, res) {
    res.render('home', content );
 });
-app.post('/about', function (req, res) {
-  res.render('about', console.log(req.body.name) );
-});
+// app.post('/about', function (req, res) {
+//   res.render('about', console.log(req.body.name) );
+// });
 
+app.post('/about', function (req, res) {
+  res.render('about', {name: req.body.name} );
+});
 
 
 // set routes
