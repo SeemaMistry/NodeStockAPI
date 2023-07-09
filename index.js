@@ -55,18 +55,20 @@ request.get({
 
     }
 });
+
+// bodyparser middleware
+app.use(express.json())
+app.use(express.urlencoded());
+
 // set handlebar routes
 app.get('/', function (req, res) {
    res.render('home', content );
 });
-app.get('/about', function (req, res) {
-  res.render('about' );
+app.post('/about', function (req, res) {
+  res.render('about', console.log(req.body.name) );
 });
 
-app.get('/searchTicker', function(req, res){
-  var searchTerm = res.query.value;
-  res.render('about', searchTerm)
-});
+
 
 // set routes
 app.use(express.static(path.join(__dirname, 'public')));
