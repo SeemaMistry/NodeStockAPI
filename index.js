@@ -10,14 +10,18 @@ const PORT = process.env.PORT || 5000;
 // set handlebars middleware
 app.engine(
   'handlebars',
-  engine({ extname: '.handlebars', defaultLayout: 'main' })
+  engine({
+    extname: '.handlebars',
+    defaultLayout: 'main',
+    // layoutsDir: path.join(__dirname, 'views/layouts'),
+  })
 );
 app.set('view engine', 'handlebars');
 app.set('views', './views');
 
 // set handlebar routes
 app.get('/', function (req, res) {
-  res.render('home');
+   res.render('home', { stuff: "I slgksdflgkhsfgklN" });
 });
 
 // set routes
