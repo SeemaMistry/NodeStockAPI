@@ -34,9 +34,6 @@ const content = { error: "", searchTerm: "fb", stuff: "I am displaying some stuf
 
 }
 
-
-
-
 // set handlebar routes
 app.get('/', function (req, res) {
   res.render('home', content );
@@ -46,6 +43,8 @@ app.post('/', function (req, res) {
   content.searchTerm = req.body.searchTerm;
   console.log(req.body.searchTerm)
     console.log(url)
+
+
   url = `https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${req.body.searchTerm}&apikey=7NRVXF6FRD2KZPF3`;
     console.log(url)
 
@@ -57,23 +56,20 @@ app.post('/', function (req, res) {
     headers: {'User-Agent': 'request'}
   }, (err, res, data) => {
     if (err) {
-      content['error'] = "There were no stocks that matched.\nUse the LookUp search in the top right corner to search up a ticker."
-
       console.log('Error:', err);
       console.log(content.error)
 
     } else if (res.statusCode !== 200) {
-      content.error = "There were no stocks that matched.\nUse the LookUp search in the top right corner to search up a ticker."
       console.log(content.error)
       console.log('Status:', res.statusCode);
     } else {
       // data is successfully parsed as a JSON object:
-      console.log(data);
+      // console.log(data);
 
       if (data.bestMatches.length === 0) {
         content.error = "There were no stocks that matched.\nUse the LookUp search in the top right corner to search up a ticker."
       }
-      
+      content.error = ""
       // add data to content{}
       content.stocks = data.bestMatches;
       
@@ -96,41 +92,41 @@ app.post('/', function (req, res) {
 // Alpha Vantage API
 // let url = `https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${content.searchTerm}&apikey=7NRVXF6FRD2KZPF3`;
 
-request.get({
-  url: url,
-  json: true,
-  headers: {'User-Agent': 'request'}
-}, (err, res, data) => {
-  if (err) {
-    content['error'] = "There were no stocks that matched.\nUse the LookUp search in the top right corner to search up a ticker."
+// request.get({
+//   url: url,
+//   json: true,
+//   headers: {'User-Agent': 'request'}
+// }, (err, res, data) => {
+//   if (err) {
+//     content['error'] = "There were no stocks that matched.\nUse the LookUp search in the top right corner to search up a ticker."
 
-    console.log('Error:', err);
-    console.log(content.error)
+//     console.log('Error:', err);
+//     console.log(content.error)
 
-  } else if (res.statusCode !== 200) {
-    content.error = "There were no stocks that matched.\nUse the LookUp search in the top right corner to search up a ticker."
-    console.log(content.error)
-    console.log('Status:', res.statusCode);
-  } else {
-    // data is successfully parsed as a JSON object:
-    console.log(data);
+//   } else if (res.statusCode !== 200) {
+//     content.error = "There were no stocks that matched.\nUse the LookUp search in the top right corner to search up a ticker."
+//     console.log(content.error)
+//     console.log('Status:', res.statusCode);
+//   } else {
+//     // data is successfully parsed as a JSON object:
+//     console.log(data);
 
-    if (data.bestMatches.length === 0) {
-      content.error = "There were no stocks that matched.\nUse the LookUp search in the top right corner to search up a ticker."
-    }
-    content.error = ""
+//     if (data.bestMatches.length === 0) {
+//       content.error = "There were no stocks that matched.\nUse the LookUp search in the top right corner to search up a ticker."
+//     }
+//     content.error = ""
 
-    // add data to content{}
-    content.stocks = data.bestMatches;
+//     // add data to content{}
+//     content.stocks = data.bestMatches;
     
-    // add only the ticker symbol to the stock{}
-    data.bestMatches.forEach(stock => {
-      console.log(stock['1. symbol'])
-    })
+//     // add only the ticker symbol to the stock{}
+//     data.bestMatches.forEach(stock => {
+//       console.log(stock['1. symbol'])
+//     })
 
 
-  }
-});
+//   }
+// });
 
 
 
