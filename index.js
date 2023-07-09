@@ -93,6 +93,7 @@ try{
   const response = await axios.get(url)
   const data = await response.data.bestMatches
   console.log(data);
+  content.error  = "";
   if (data.length === 0){
     content.error  = "There were no stocks that matched.\nUse the LookUp search in the top right corner to search up a ticker."
   }
