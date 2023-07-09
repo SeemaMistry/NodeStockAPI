@@ -30,7 +30,7 @@ app.get('/', function (req, res) {
 
 
 app.post('/about', function (req, res) {
- res.render('about', {name: req.body.searchTerm} );
+ res.render('about', {searchTerm: req.body.searchTerm} );
 });
 
 // Alpha Vantage API
