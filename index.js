@@ -74,6 +74,35 @@ app.get('/', function (req, res)  {
   // next();
 });
 
+app.post('/', async function  (req, res)  {
+  // update url searchterm
+  content.searchTerm = req.body.searchTerm;
+  url = `https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${content.searchTerm}&apikey=7NRVXF6FRD2KZPF3`
+//   axios.get(url)
+// .then((res) => {
+//   content.stocks = res.data.bestMatches
+//   console.log(content)
+// })
+// .catch((err) => console.log(err))
+// // axios.get('/').then((res) => {
+// //   console.log("made a get request")
+// // })
+// // .catch((err) => console.log(err))
+
+try{
+  const response = await axios.get(url)
+  const data = await response.data.bestMatches
+  console.log(data);
+  content.stocks = data;
+}catch (err){
+  console.log(err)
+}
+
+
+res.redirect('/')
+});
+
+// axios.post('/')
 
 // app.post('*', function (req, res)  {
 //   // set url
