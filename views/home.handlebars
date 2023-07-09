@@ -2,8 +2,9 @@
 <p>The handlebar is rendering paragraphs ....</p>
 <p>This is some stuff: {{stuff}}</p>
 <p>This is some content: {{content}}</p>
-
-{{stocks}}
+{{#if error}}
+<h2>{{error}}</h2>
+{{/if}}
 
 <h1>This is the stock cards</h1>
 {{#each stocks}}
@@ -21,7 +22,7 @@
   </div>
 </div>
 {{/each}}
-
+{{!-- 
 <ul>
 {{#each obj}}
 <li>{{ this }}</li>
@@ -31,4 +32,4 @@
 {{#each obj2}}
 <li>{{this.id}}: {{this.[name. 1]}}</li>
 {{/each}}
-</ul>
+</ul> --}}
