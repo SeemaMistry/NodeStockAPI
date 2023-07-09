@@ -19,12 +19,52 @@ app.engine(
 app.set('view engine', 'handlebars');
 app.set('views', './views');
 
+// Alpha Vantage API
+// 'use strict';
+var request = require('request');
+
+// replace the "demo" apikey below with your own key from https://www.alphavantage.co/support/#api-key
+var url = 'https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=microsoft&apikey=7NRVXF6FRD2KZPF3';
+
+const content = { stuff: "I am displaying some stuff", content: "200 okay"}
+
+request.get({
+    url: url,
+    json: true,
+    headers: {'User-Agent': 'request'}
+  }, (err, res, data) => {
+    if (err) {
+      console.log('Error:', err);
+    } else if (res.statusCode !== 200) {
+      console.log('Status:', res.statusCode);
+    } else {
+      // data is successfully parsed as a JSON object:
+      // console.log(data);
+      
+      // add data to content{}
+      // content.stocks = JSON.stringify(data);
+      content.stocks = []
+      // add only the ticker symbol to the stock{}
+      data.bestMatches.forEach(stock => {
+        console.log(stock['1. symbol'])
+        
+    
+      
+      })
+      // content.stocks  =
+
+    }
+});
 // set handlebar routes
 app.get('/', function (req, res) {
-   res.render('home', { stuff: "I slgksdflgkhsfgklN" });
+   res.render('home', content );
 });
+
+
 
 // set routes
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.listen(PORT, () => console.log('port is working on: ' + PORT));
+
+
