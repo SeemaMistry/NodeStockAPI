@@ -59,8 +59,14 @@ request.get({
 app.get('/', function (req, res) {
    res.render('home', content );
 });
+app.get('/about', function (req, res) {
+  res.render('about' );
+});
 
-
+app.get('/searchTicker', function(req, res){
+  var searchTerm = res.query.value;
+  res.render('about', searchTerm)
+});
 
 // set routes
 app.use(express.static(path.join(__dirname, 'public')));
