@@ -26,7 +26,10 @@ var request = require('request');
 // replace the "demo" apikey below with your own key from https://www.alphavantage.co/support/#api-key
 var url = 'https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=microsoft&apikey=7NRVXF6FRD2KZPF3';
 
-const content = { stuff: "I am displaying some stuff", content: "200 okay"}
+const content = { stuff: "I am displaying some stuff", content: "200 okay",
+            obj: [1,2,3], obj2: [{id:"hi", "name. 1":"world"}, {id:"bye", "name. 1":"sky"}]
+
+}
 
 request.get({
     url: url,
@@ -39,19 +42,16 @@ request.get({
       console.log('Status:', res.statusCode);
     } else {
       // data is successfully parsed as a JSON object:
-      // console.log(data);
+      console.log(data);
       
       // add data to content{}
-      // content.stocks = JSON.stringify(data);
-      content.stocks = []
+      content.stocks = data.bestMatches;
+      
       // add only the ticker symbol to the stock{}
       data.bestMatches.forEach(stock => {
         console.log(stock['1. symbol'])
-        
-    
-      
       })
-      // content.stocks  =
+
 
     }
 });
