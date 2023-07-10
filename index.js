@@ -27,7 +27,7 @@ app.set('views', './views');
 const content = { error: "", searchTerm: "ttxp"}
 
 // replace the "demo" apikey below with your own key from https://www.alphavantage.co/support/#api-key
-var url = `https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${content.searchTerm}&apikey=7NRVXF6FRD2KZPF3`;
+var url = `https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${content.searchTerm}&apikey=DEMO`;
 
 // default auto load TTXP ticker for homepage
 axios.get(url)
@@ -42,7 +42,7 @@ app.get('/', function (req, res)  {
 app.post('/', async function  (req, res)  {
   // update url searchterm
   content.searchTerm = req.body.searchTerm;
-  url = `https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${content.searchTerm}&apikey=7NRVXF6FRD2KZPF3`
+  url = `https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${content.searchTerm}&apikey=DEMO`
   
   // load data in content.stocks before rendering web-page
   try{
