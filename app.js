@@ -54,7 +54,7 @@ app.post('/', async function  (req, res)  {
   // get stock ticker data
   const response = await axios.get(url)
   const data = await response.data.bestMatches
-  console.log(data)
+  
   // add err msg if no stock ticker data found
   content.error  = "";
   if (data.length === 0){
