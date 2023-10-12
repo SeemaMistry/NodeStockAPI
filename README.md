@@ -23,11 +23,12 @@ A list of the key tech staks, tools, and techniques used to build this project a
 
 
 # Screenshots 
+Test run using Jest and SuperTest
+![Alt text](/public/TestsPassingImage.png?raw=true )
+
 Full Screen View
 ![Alt text](/public/fullscreen.png?raw=true)
 
 Mobile Screen View
 ![Alt text](/public/mobilescreen.png?raw=true )
 
-Test run using Jest and SuperTest
-![Alt text](/public/TestsPassingImage.png?raw=true )
