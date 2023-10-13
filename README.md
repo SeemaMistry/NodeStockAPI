@@ -10,7 +10,7 @@ HTTP testing implemented using Jest and SuperTest.
 
 
 # Tech Stack, Tools, Techniques
-A list of the key tech staks, tools, and techniques used to build this project are listed below:
+A list of the key tech stacks, tools, and techniques used to build this project are listed below:
 - Node.js
 - Express.js
 - Express-Handlebars
